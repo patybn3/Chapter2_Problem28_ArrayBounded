@@ -63,4 +63,30 @@ public class ArrayBoundedStack<T> implements StackInterface<T>
     {
         return (topIndex == (elements.length - 1));
     }
+
+    public String toString()
+    {
+       String
+    }
+
+    public int size()
+    {
+        topIndex = elements.length;
+        return topIndex;
+    }
+
+    public void popSome(int count)
+    {
+
+    }
+
+    public boolean swapStart()
+    {
+        return true;
+    }
+
+    public T popTop()
+    {
+
+    }
 }
