@@ -23,7 +23,7 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
 
     public void userSelection()
     {
-        System.out.println("\nArrayBoundedStack(maxCount) example:\n");
+        System.out.println("ArrayBoundedStack(maxCount) example:");
         System.out.println("\nEnter Stack size: ");
         arrayMax = scnr.nextInt();
         printMenu();
@@ -73,14 +73,13 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
                     System.out.println(((ArrayBoundedStack<String>) testDriverLimit).size());
                     break;
                 case 6:
-                    System.out.println("swapStart()");
-                    System.out.println("Result of swapStart is: " + ((ArrayBoundedStack<String>) testDriverLimit).swapStart());
+                    ((ArrayBoundedStack<String>) testDriverLimit).swapStart();
+                    System.out.println("Swapped!");
                     break;
                 case 7:
-                    System.out.println("popSome()");
-                    System.out.println("Enter count to popSome:");
+                    System.out.println("Enter Amount To Pop:");
                     popCount = scnr.nextInt();
-                    System.out.println("popSome Count is :(\"" + popCount + "\")");
+                    System.out.println(popCount + " Elements Popped.");
                     ((ArrayBoundedStack<String>) testDriverLimit).popSome(popCount);
                     break;
                 case 8:
@@ -100,8 +99,6 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
     {
 
         Chapter2_28_ArrayBounded_PatriciaAntlitz runMethods = new Chapter2_28_ArrayBounded_PatriciaAntlitz();
-       // StackInterface<String> testDriverLimit = new ArrayBoundedStack<>(arrayMax + 1);
-
         runMethods.userSelection();
     }
 }
