@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
 {
-    public static int arrayMax, userInt;
-    static Scanner scnr = new Scanner(System.in);
-    public static String userSelection = "";
+    Scanner scnr = new Scanner(System.in);
+    public int arrayMax, userInt, popCount;
+    public String userSelection = "";
+    public boolean keepGoing = true;
 
     public void printMenu()
     {
@@ -16,16 +17,8 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
         System.out.println("5)   |---- Print Size (size();) ---------| ");
         System.out.println("6)   |---- Swap Start (swapStart();) ----| ");
         System.out.println("7)   |---- Pop Some (popSome();) --------| ");
-        System.out.println("8)   |---- Pop Top (popTop();) ----------| ");
-        System.out.println("9)   |---- Print MENU -------------------| ");
-    }
-
-    public void printElements()
-    {
-        for(int i = 0; i < elements.length; i++)
-        {
-            System.out.println(elements[i] + ", ");
-        }
+        System.out.println("8)   |---- Print MENU -------------------| ");
+        System.out.println("9)   |---- EXIT -------------------------| ");
     }
 
     public void userSelection()
@@ -37,7 +30,7 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
 
         StackInterface<String> testDriverLimit = new ArrayBoundedStack<>(arrayMax);
 
-        while(arrayMax > 0)
+        while(keepGoing)
         {
             userInt = scnr.nextInt();
 
@@ -55,12 +48,10 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
                         userSelection = scnr.nextLine();
                         testDriverLimit.push(userSelection);
                     }
-                    printElements();
                     break;
                 case 2:
                     System.out.println("Top Popped: " + testDriverLimit.top());
                     testDriverLimit.pop();
-                    printElements();
                     break;
                 case 3:
                     System.out.println("Top Element = " + testDriverLimit.top());
@@ -72,6 +63,7 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
                         break;
                     }
                     else {
+
                         System.out.println("Print Stack:");
                         System.out.println(testDriverLimit.toString());
                     }
@@ -79,11 +71,26 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
                 case 5:
                     System.out.println("Size of Stack:");
                     System.out.println(((ArrayBoundedStack<String>) testDriverLimit).size());
-                case 9:
+                    break;
+                case 6:
+                    System.out.println("swapStart()");
+                    System.out.println("Result of swapStart is: " + ((ArrayBoundedStack<String>) testDriverLimit).swapStart());
+                    break;
+                case 7:
+                    System.out.println("popSome()");
+                    System.out.println("Enter count to popSome:");
+                    popCount = scnr.nextInt();
+                    System.out.println("popSome Count is :(\"" + popCount + "\")");
+                    ((ArrayBoundedStack<String>) testDriverLimit).popSome(popCount);
+                    break;
+                case 8:
                     printMenu();
                     break;
+                case 9:
+                    keepGoing = false;
+                    break;
                 default:
-                    System.out.println("----");
+                    System.out.println("Select The Next Operation, or Enter 9 to See The Menu:");
             }
             System.out.println("Select The Next Operation, or Enter 9 to See The Menu:");
         }
@@ -96,17 +103,5 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
        // StackInterface<String> testDriverLimit = new ArrayBoundedStack<>(arrayMax + 1);
 
         runMethods.userSelection();
-        System.out.println("problem");
-
-//        for(int k = 0; k <= arrayMax; k++)
-//        {
-//            userSelection = scnr.nextLine();
-//            System.out.println("Enter next element:");
-//            testDriverLimit.push(userSelection);
-//        }
-
-       // System.out.println(" Stack " + testDriverLimit.toString());
-
-
     }
 }
