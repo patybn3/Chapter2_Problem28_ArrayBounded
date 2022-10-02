@@ -66,7 +66,10 @@ public class ArrayBoundedStack<T> implements StackInterface<T>
 
     public String toString()
     {
-       String
+       String currStackRep = "";
+       for (int i = topIndex; i >= 0; i--)
+          currStackRep = currStackRep + elements[i].toString() + " ";
+       return currStackRep;
     }
 
     public int size()
@@ -77,16 +80,25 @@ public class ArrayBoundedStack<T> implements StackInterface<T>
 
     public void popSome(int count)
     {
-
+        for(int i = 0; i < count; i++)
+        {
+            elements[topIndex] = null;
+            topIndex--;
+        }
     }
 
     public boolean swapStart()
     {
+        T firstElement;
+        T sndElement;
+        System.out.println(elements.length);
+        if(elements.length < 1)
+            return false;
+        else
+            firstElement = elements[topIndex];
+            sndElement= elements[topIndex -1];
+            elements[topIndex] = sndElement;
+            elements[topIndex -1] = firstElement;
         return true;
-    }
-
-    public T popTop()
-    {
-
     }
 }
