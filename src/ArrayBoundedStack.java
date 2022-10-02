@@ -64,12 +64,14 @@ public class ArrayBoundedStack<T> implements StackInterface<T>
         return (topIndex == (elements.length - 1));
     }
 
+    //custom methods start here
     public String toString()
     {
-       String currStackRep = "";
-       for (int i = topIndex; i >= 0; i--)
-          currStackRep = currStackRep + elements[i].toString() + " ";
-       return currStackRep;
+        //will turn the full stack into a string to print it
+        String currStackRep = "";
+        for (int i = topIndex; i >= 0; i--)
+           currStackRep = currStackRep + elements[i].toString() + " ";
+        return currStackRep;
     }
 
     public int size()
@@ -78,6 +80,7 @@ public class ArrayBoundedStack<T> implements StackInterface<T>
         return topIndex;
     }
 
+    //whatever number is passed will be popped given that number is within the size
     public void popSome(int count)
     {
         for(int i = 0; i < count; i++)
@@ -87,6 +90,7 @@ public class ArrayBoundedStack<T> implements StackInterface<T>
         }
     }
 
+    //top two numbers will swap places
     public boolean swapStart()
     {
         T firstElement;
@@ -101,4 +105,5 @@ public class ArrayBoundedStack<T> implements StackInterface<T>
             elements[topIndex -1] = firstElement;
         return true;
     }
+    //last required method popTop was not included because pop() already pops the top element.
 }
