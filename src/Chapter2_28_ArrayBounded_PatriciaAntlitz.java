@@ -20,6 +20,14 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
         System.out.println("9)   |---- Print MENU -------------------| ");
     }
 
+    public void printElements()
+    {
+        for(int i = 0; i < elements.length; i++)
+        {
+            System.out.println(elements[i] + ", ");
+        }
+    }
+
     public void userSelection()
     {
         System.out.println("\nArrayBoundedStack(maxCount) example:\n");
@@ -47,10 +55,12 @@ public class Chapter2_28_ArrayBounded_PatriciaAntlitz extends ArrayBoundedStack
                         userSelection = scnr.nextLine();
                         testDriverLimit.push(userSelection);
                     }
+                    printElements();
                     break;
                 case 2:
                     System.out.println("Top Popped: " + testDriverLimit.top());
                     testDriverLimit.pop();
+                    printElements();
                     break;
                 case 3:
                     System.out.println("Top Element = " + testDriverLimit.top());
